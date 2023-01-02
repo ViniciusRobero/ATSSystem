@@ -30,9 +30,9 @@ namespace ATSSystem.Application.IntegrationTests.Candidates.Commands
         public async Task ShouldRequireUniqueName()
         {
             
-            var candidate = await SendAsync(new CreateCandidateCommand("Jaqueline", "15433645656"));
+            var candidate = await SendAsync(new CreateCandidateCommand("Jaqueline", "343434343", DateTime.Now, "Teste", "Senior", "Developer"));
 
-            await SendAsync(new CreateCandidateCommand("Diniz", "1546545645656"));
+            await SendAsync(new CreateCandidateCommand("Diniz", "343434343", DateTime.Now, "Teste", "Senior", "Developer"));
 
             var command = new UpdateCandidateCommand
             {
@@ -49,7 +49,7 @@ namespace ATSSystem.Application.IntegrationTests.Candidates.Commands
         [Test]
         public async Task ShouldUpdateCandidate()
         {
-            var result = await SendAsync(new CreateCandidateCommand("Geremias", "1546545645656"));
+            var result = await SendAsync(new CreateCandidateCommand("Norman", "343434343", DateTime.Now, "Teste", "Senior", "Developer"));
 
             var command = new UpdateCandidateCommand
             {

@@ -14,6 +14,8 @@ namespace ATSSystem.Infrastructure.Persistence
         }
 
         public DbSet<Candidate> Candidates { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

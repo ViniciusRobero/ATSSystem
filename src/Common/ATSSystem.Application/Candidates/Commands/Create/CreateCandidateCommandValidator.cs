@@ -15,15 +15,23 @@ namespace ATSSystem.Application.Candidates.Commands.Create
             _context = context;
 
             RuleFor(v => v.Name)
-                .MaximumLength(100).WithMessage("Name must not exceed 100 characters.")
-                .MustAsync(BeUniqueName).WithMessage("The specified candidate already exists.")
+                .MaximumLength(200).WithMessage("Name must not exceed 200 characters.")
                 .NotEmpty().WithMessage("Name is required.");
-        }
+        
+            RuleFor(v => v.Document)
+                .MaximumLength(15).WithMessage("Document must not exceed 15 characters.")
+                .NotEmpty().WithMessage("Name is required.");
 
-        private async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
-        {
-            //TODO: Control by uppercase and CultureInfo
-            return await _context.Candidates.AllAsync(x => x.Name != name, cancellationToken);
+            RuleFor(v => v.BirthDate)
+                .NotEmpty().WithMessage("BirthDate is required.");
+
+            RuleFor(v => v.Seniority)
+                .MaximumLength(10).WithMessage("Seniority must not exceed 10 characters.")
+                .NotEmpty().WithMessage("Seniority is required.");
+
+            RuleFor(v => v.Occupation)
+                .MaximumLength(30).WithMessage("Occupation must not exceed 30 characters.")
+                .NotEmpty().WithMessage("Occupation is required.");
         }
     }
 }

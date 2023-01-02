@@ -5,12 +5,11 @@ using ATSSystem.Application.Common.Interfaces;
 using ATSSystem.Application.Common.Models;
 using ATSSystem.Application.Dto;
 using ATSSystem.Domain.Entities;
-using ATSSystem.Domain.Event;
 using MapsterMapper;
 
 namespace ATSSystem.Application.Candidates.Commands.Create
 {
-    public record CreateCandidateCommand(string Name, string Document) : IRequestWrapper<CandidatesDto>;
+    public record CreateCandidateCommand(string Name, string Document, DateTime BirthDate, string Ocupation, string Seniority, string Occupation) : IRequestWrapper<CandidatesDto>;
 
     public class CreateCandidateCommandHandler : IRequestHandlerWrapper<CreateCandidateCommand, CandidatesDto>
     {
@@ -28,7 +27,10 @@ namespace ATSSystem.Application.Candidates.Commands.Create
             var entity = new Candidate
             {
                 Name = request.Name,
-                Document = request.Document
+                Document = request.Document,
+                BirthDate = request.BirthDate,
+                Occupation = request.Ocupation,
+                Seniority = request.Seniority
             };
 
             await _context.Candidates.AddAsync(entity, cancellationToken);

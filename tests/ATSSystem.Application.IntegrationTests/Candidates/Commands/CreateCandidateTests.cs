@@ -15,7 +15,7 @@ namespace ATSSystem.Application.IntegrationTests.Candidates.Commands
         [Test]
         public void ShouldRequireMinimumFields()
         {
-            var command = new CreateCandidateCommand("Norman", "343434343");
+            var command = new CreateCandidateCommand("Norman", "343434343", DateTime.Now, "Teste", "Senior", "Developer");
 
             FluentActions.Invoking(() =>
                 SendAsync(command)).Should().ThrowAsync<ValidationException>();
@@ -26,9 +26,9 @@ namespace ATSSystem.Application.IntegrationTests.Candidates.Commands
         public async Task ShouldRequireUniqueName()
         {
             
-            await SendAsync(new CreateCandidateCommand( "Jaqueline", "1546545645656" ));
+            await SendAsync(new CreateCandidateCommand("Norman123", "23123123", DateTime.Now, "Teste2", "Senior", "Developer"));
 
-            var command = new CreateCandidateCommand( "Joaquim", "48855856465456");
+            var command = new CreateCandidateCommand("Norman2", "123213214424", DateTime.Now, "Teste2", "Junior", "Developer");
 
             await FluentActions.Invoking(() =>
                 SendAsync(command)).Should().ThrowAsync<ValidationException>();
@@ -38,7 +38,7 @@ namespace ATSSystem.Application.IntegrationTests.Candidates.Commands
         public async Task ShouldCreateCandidate()
         {
 
-            var command = new CreateCandidateCommand( "Geremias", "54454454545");
+            var command = new CreateCandidateCommand("Geremias", "343434343", DateTime.Now, "Teste", "Senior", "Developer");
 
             var result = await SendAsync(command);
 

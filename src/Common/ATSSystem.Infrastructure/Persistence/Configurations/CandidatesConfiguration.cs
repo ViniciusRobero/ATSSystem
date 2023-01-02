@@ -13,9 +13,19 @@ namespace ATSSystem.Infrastructure.Persistence.Configurations
                 .HasMaxLength(200)
                 .IsRequired();
 
-
             builder.Property(t => t.Document)
                 .HasMaxLength(15)
+                .IsRequired();
+
+            builder.Property(t => t.BirthDate)
+                .IsRequired();
+
+            builder.Property(t => t.Seniority)
+                .HasMaxLength(10)
+                .IsRequired();
+
+            builder.Property(t => t.Occupation)
+                .HasMaxLength(30)
                 .IsRequired();
         }
     }

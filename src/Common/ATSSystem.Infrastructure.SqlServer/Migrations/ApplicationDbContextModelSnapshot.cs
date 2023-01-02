@@ -19,17 +19,49 @@ namespace ATSSystem.Infrastructure.SqlServer.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<bool>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(200)");
 
-                    b.Property<DateTime>("Document")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Document")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Seniority")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Candidates");
                 });
 
+            modelBuilder.Entity("ATSSystem.Domain.Entities.Job", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .UseIdentityColumn();
+
+                b.Property<string>("JobTitle")
+                    .HasColumnType("nvarchar(100)");
+
+                b.Property<string>("JobDiscription")
+                    .HasColumnType("nvarchar(max)");
+
+                b.Property<decimal>("Salary")
+                    .HasColumnType("decimal");
+
+                b.Property<string>("Seniority")
+                    .HasColumnType("nvarchar(10)");
+
+                b.HasKey("Id");
+
+                b.ToTable("Job");
+            });
         }
     }
 }

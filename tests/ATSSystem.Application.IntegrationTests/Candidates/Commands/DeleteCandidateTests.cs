@@ -25,7 +25,7 @@ namespace ATSSystem.Application.IntegrationTests.Candidates.Commands
         public async Task ShouldDeleteCandidate()
         {
 
-            var candidate = await SendAsync(new CreateCandidateCommand("Jaqueline", "1546545645656"));
+            var candidate = await SendAsync(new CreateCandidateCommand("Jaqueline", "343434343", DateTime.Now, "Teste", "Senior", "Developer"));
 
             await SendAsync(new DeleteCandidateCommand
             {

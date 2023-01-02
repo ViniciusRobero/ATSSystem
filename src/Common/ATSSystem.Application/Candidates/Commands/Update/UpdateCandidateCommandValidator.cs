@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ATSSystem.Application.Candidates.Commands.Update
 {
-    public class UpdateCandidateCommandValidator : AbstractValidator<UpdateCandidateCommand>
+    public class UpdateJobCommandValidator : AbstractValidator<UpdateCandidateCommand>
     {
         private readonly IApplicationDbContext _context;
-        public UpdateCandidateCommandValidator(IApplicationDbContext context)
+        public UpdateJobCommandValidator(IApplicationDbContext context)
         {
             _context = context;
 
