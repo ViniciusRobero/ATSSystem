@@ -13,12 +13,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace ATSSystem.Api.Controllers
 {
     /// <summary>
-    /// Candidates
+    /// Jobs
     /// </summary>
     public class JobsController : BaseApiController
     {
         /// <summary>
-        /// Get all candidates
+        /// Get all jobs
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
@@ -30,7 +30,7 @@ namespace ATSSystem.Api.Controllers
         }
 
         /// <summary>
-        /// Get candidate by Id
+        /// Get job by Id
         /// </summary>
         /// <param name="id"></param>
         /// <param name="cancellationToken"></param>
@@ -42,7 +42,7 @@ namespace ATSSystem.Api.Controllers
         }
 
         /// <summary>
-        /// Create candidate
+        /// Create job
         /// </summary>
         /// <param name="command"></param>
         /// <param name="cancellationToken"></param>
@@ -54,7 +54,7 @@ namespace ATSSystem.Api.Controllers
         }
 
         /// <summary>
-        /// Update candidate
+        /// Update job
         /// </summary>
         /// <param name="command"></param>
         /// <param name="cancellationToken"></param>
@@ -66,7 +66,7 @@ namespace ATSSystem.Api.Controllers
         }
 
         /// <summary>
-        /// Delete candidate by Id
+        /// Delete job by Id
         /// </summary>
         /// <param name="id"></param>
         /// <param name="cancellationToken"></param>
@@ -75,6 +75,18 @@ namespace ATSSystem.Api.Controllers
         public async Task<ActionResult<ServiceResult<JobsDto>>> Delete(int id, CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(new DeleteJobCommand { Id = id }, cancellationToken));
+        }
+
+        /// <summary>
+        /// Apply to a job
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult<ServiceResult<JobApplicationDto>>> Create(CreateJobApplicationCommand command, CancellationToken cancellationToken)
+        {
+            return Ok(await Mediator.Send(command, cancellationToken));
         }
     }
 }

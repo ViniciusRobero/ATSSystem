@@ -9,6 +9,7 @@ namespace ATSSystem.Application.Common.Interfaces
     {
         DbSet<Candidate> Candidates { get; set; }
         DbSet<Job> Jobs { get; set; }
+        DbSet<JobApplication> JobApplication { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

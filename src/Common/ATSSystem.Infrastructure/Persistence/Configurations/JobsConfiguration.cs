@@ -22,6 +22,9 @@ namespace ATSSystem.Infrastructure.Persistence.Configurations
             builder.Property(t => t.Seniority)
                 .HasMaxLength(10)
                 .IsRequired();
+
+            builder.Property(t => t.Curriculum)
+                .IsRequired();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using ATSSystem.Application.Common.Exceptions;
 using ATSSystem.Application.Common.Interfaces;
@@ -15,9 +16,13 @@ namespace ATSSystem.Application.Candidates.Commands.Update
 
         public string Name { get; set; }
 
-        public string CreateDate { get; set; }
-
         public string Document { get; set; }
+
+        public DateTime BirthDate { get; set; }
+
+        public string Occupation { get; set; }
+
+        public string Seniority { get; set; }
 
     }
 
@@ -42,8 +47,18 @@ namespace ATSSystem.Application.Candidates.Commands.Update
             }
             if (!string.IsNullOrEmpty(request.Name))
                 entity.Name = request.Name;
+
             if (!string.IsNullOrEmpty(request.Document))
                 entity.Document = request.Document;
+
+            if (!string.IsNullOrEmpty(request.Occupation))
+                entity.Occupation = request.Occupation;
+
+            if (!string.IsNullOrEmpty(request.Seniority))
+                entity.Seniority = request.Seniority;
+
+            if (request.BirthDate != DateTime.MinValue)
+                entity.BirthDate = request.BirthDate;
 
             await _context.SaveChangesAsync(cancellationToken);
 

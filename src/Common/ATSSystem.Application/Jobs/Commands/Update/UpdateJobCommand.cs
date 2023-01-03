@@ -21,6 +21,7 @@ namespace ATSSystem.Application.Jobs.Commands.Update
 
         public decimal Salary { get; set; }
 
+        public string Curriculum { get; set; }
     }
 
     public class UpdateJobCommandHandler : IRequestHandlerWrapper<UpdateJobCommand, JobsDto>
@@ -54,6 +55,9 @@ namespace ATSSystem.Application.Jobs.Commands.Update
 
             if (!string.IsNullOrEmpty(request.Seniority))
                 entity.Seniority = request.Seniority;
+
+            if (!string.IsNullOrEmpty(request.Curriculum))
+                entity.Curriculum = request.Curriculum;
 
             await _context.SaveChangesAsync(cancellationToken);
 

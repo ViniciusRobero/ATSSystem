@@ -34,6 +34,9 @@ namespace ATSSystem.Infrastructure.SqlServer.Migrations
                     b.Property<string>("Occupation")
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<string>("Curriculum")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Candidates");
@@ -61,6 +64,34 @@ namespace ATSSystem.Infrastructure.SqlServer.Migrations
                 b.HasKey("Id");
 
                 b.ToTable("Job");
+            });
+
+            modelBuilder.Entity("ATSSystem.Domain.Entities.JobApplication", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .UseIdentityColumn();
+
+                b.Property<string>("JobId")
+                    .IsRequired()
+                    .HasColumnType("int");
+
+                b.Property<string>("CandidateId")
+                    .IsRequired()
+                    .HasColumnType("int");
+
+                b.HasKey("Id");
+
+                b.HasOne("ATSSystem.Domain.Entities.Job")
+                 .WithMany()
+                 .HasForeignKey("JobId");
+
+                b.HasOne("ATSSystem.Domain.Entities.Candidate")
+                 .WithMany()
+                 .HasForeignKey("CandidateId");
+
+                b.ToTable("JobApplication");
             });
         }
     }

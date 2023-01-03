@@ -1,14 +1,7 @@
 version: '3.4'
 
 services:
-  #sql-server-db:
-  #  container_name: sql-server-db
-  #  image: mcr.microsoft.com/mssql/server:2019-latest
-  #  environment:
-  #    SA_PASSWORD: "ATS*S&ste3"
-  #    ACCEPT_EULA: "Y"
-  #  ports:
-  #    - "5434:1433"
+
   sqlserver:
     image: "mcr.microsoft.com/mssql/server:2019-latest"
     ports:
@@ -28,7 +21,3 @@ services:
     restart: on-failure
     depends_on:
       - sqlserver
-
-#networks:
-#  webnet:
-#    driver: bridge
