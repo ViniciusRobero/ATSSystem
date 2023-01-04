@@ -28,7 +28,7 @@ namespace ATSSystem.Application.Jobs.Queries.GetJobsById
 
         public async Task<ServiceResult<JobsDto>> Handle(GetJobByIdQuery request, CancellationToken cancellationToken)
         {
-            var candidate = await _context.Candidates
+            var candidate = await _context.Jobs
                 .Where(x => x.Id == request.JobId)
                 .ProjectToType<JobsDto>(_mapper.Config)
                 .FirstOrDefaultAsync(cancellationToken);

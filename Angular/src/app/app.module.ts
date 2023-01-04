@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ViewCandidateComponent } from './view-candidate/view-candidate.component';
+import { HomeComponent } from './components/home/home.component';
+import { ViewCandidateComponent } from './components/view-candidate/view-candidate.component';
 import { AddCandidateComponent } from './components/candidates/add-candidate/add-candidate.component';
 import { EditCandidateComponent } from './components/candidates/edit-candidate/edit-candidate.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ListCandidateComponent } from './components/candidates/list-candidate/list-candidate.component';
+import { AddJobComponent } from './components/jobs/add-job/add-job.component';
+import { EditJobComponent } from './components/jobs/edit-job/edit-job.component';
+import { ListJobComponent } from './components/jobs/list-jobs/list-job.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { ListCandidateComponent } from './components/candidates/list-candidate/l
     ViewCandidateComponent,
     AddCandidateComponent,
     EditCandidateComponent,
-    ListCandidateComponent
+    ListCandidateComponent,
+    AddJobComponent,
+    EditJobComponent,
+    ListJobComponent
   ],
   imports: [
     BrowserModule,

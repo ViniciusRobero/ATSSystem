@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpProviderService } from '../service/http-provider.service';
-import { WebApiService } from '../service/web-api.service';
+import { HttpProviderService } from '../../service/http-provider.service';
+import { WebApiService } from '../../service/web-api.service';
 
 @Component({
   selector: 'app-view-candidate',

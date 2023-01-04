@@ -1,0 +1,78 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Atualizar Vaga</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/ListJobs" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Voltar</a>
+          </div>
+        </div>
+      </div>
+      <form #jobForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="FirstName" class="p-t-b-10">Título da Vaga<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="JobTitle" required maxlength="50"
+                [(ngModel)]="editJobForm.JobTitle" name="JobTitle" #JobTitle="ngModel">
+              <div *ngIf="JobTitle.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!JobTitle.errors?.['required']">
+                  Título da vaga é obrigatório
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="LastName" class="p-t-b-10">Senioridade<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Seniority" required maxlength="50"
+                [(ngModel)]="editJobForm.Seniority" name="Seniority" #Seniority="ngModel">
+              <div *ngIf="Seniority.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Seniority.errors?.['required']">
+                  Sobrenome é obrigatório
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Salário<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Salary" required maxlength="255"
+                [(ngModel)]="editJobForm.Salary" name="Salary" #Salary="ngModel">
+              <div *ngIf="Salary.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Salary.errors?.['required']">
+                  Salário é obrigatório.
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="form-group p-10 row">
+          <div class="col-sm-3">
+            <label class="p-t-b-10">Descrição da Vaga</label>
+          </div>
+          <div class="col-sm-9">
+            <textarea required class="form-control" id="Curriculum" [(ngModel)]="editJobForm.JobDiscription" name="JobDiscription"
+              #JobDiscription="ngModel">></textarea>
+          </div>
+             <div [hidden]="!JobDiscription.errors?.['required']">
+                  A descrição da vaga é obrigatória.
+              </div>
+        </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="EditJob(jobForm.form.valid)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

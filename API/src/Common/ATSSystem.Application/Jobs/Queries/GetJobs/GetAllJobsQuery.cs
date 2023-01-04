@@ -28,7 +28,7 @@ namespace ATSSystem.Application.Jobs.Queries.GetJobs
 
         public async Task<ServiceResult<List<JobsDto>>> Handle(GetAllJobsQuery request, CancellationToken cancellationToken)
         {
-            List<JobsDto> list = await _context.Candidates
+            List<JobsDto> list = await _context.Jobs
                 .ProjectToType<JobsDto>(_mapper.Config)
                 .ToListAsync(cancellationToken);
 

@@ -50,9 +50,9 @@ export class EditCandidateComponent implements OnInit {
         if (data != null && data.body != null) {
           var resultData = data.body;
             if (resultData != null && resultData.succeeded) {
-              this.toastr.success(resultData.message);
+              this.toastr.success("Candidato atualizado com sucesso.");
               setTimeout(() => {
-                this.router.navigate(['/Home']);
+                this.router.navigate(['/ListCandidates']);
               }, 500);
             }
         }

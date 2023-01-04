@@ -20,8 +20,6 @@ namespace ATSSystem.Application.Jobs.Commands.Update
         public string Seniority { get; set; }
 
         public decimal Salary { get; set; }
-
-        public string Curriculum { get; set; }
     }
 
     public class UpdateJobCommandHandler : IRequestHandlerWrapper<UpdateJobCommand, JobsDto>

@@ -9,7 +9,7 @@ using MapsterMapper;
 
 namespace ATSSystem.Application.Jobs.Commands.Create
 {
-    public record CreateJobCommand(string JobTitle, string JobDiscription, string Seniority, decimal Salary, string Curriculum) : IRequestWrapper<JobsDto>;
+    public record CreateJobCommand(string JobTitle, string JobDiscription, string Seniority, decimal Salary) : IRequestWrapper<JobsDto>;
 
     public class CreateJobCommandHandler : IRequestHandlerWrapper<CreateJobCommand, JobsDto>
     {

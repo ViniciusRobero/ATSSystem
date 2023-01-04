@@ -5,15 +5,15 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../../../service/http-provider.service';
 
 @Component({
-  selector: 'app-add-candidate',
-  templateUrl: './add-candidate.component.html',
-  styleUrls: ['./add-candidate.component.scss']
+  selector: 'app-add-job',
+  templateUrl: './add-job.component.html',
+  styleUrls: ['./add-job.component.scss']
 })
-export class AddCandidateComponent implements OnInit {
-  addCandidateForm: candidateForm = new candidateForm();
+export class AddJobComponent implements OnInit {
+  addJobForm: jobForm = new jobForm();
 
-  @ViewChild("candidateForm")
-  candidateForm!: NgForm;
+  @ViewChild("jobForm")
+  jobForm!: NgForm;
 
   isSubmitted: boolean = false;
 
@@ -22,18 +22,18 @@ export class AddCandidateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  AddCandidate(isValid: any) {
+  AddJob(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      console.log(this.addCandidateForm);
-      this.httpProvider.saveCandidate(this.addCandidateForm).subscribe(async data => {
+      console.log(this.addJobForm);
+      this.httpProvider.saveJob(this.addJobForm).subscribe(async data => {
         if (data != null && data.body != null) {
           if (data != null && data.body != null) {
             var resultData = data.body;
             if (resultData != null && resultData.succeeded) {
-              this.toastr.success("Candidato cadastrado com sucesso.");
+              this.toastr.success("Vaga cadastrada com sucesso.");
               setTimeout(() => {
-                this.router.navigate(['/ListCandidates']);
+                this.router.navigate(['/ListJobs']);
               }, 500);
             }
           }
@@ -50,9 +50,9 @@ export class AddCandidateComponent implements OnInit {
 
 }
 
-export class candidateForm {
-  FirstName: string = "";
-  LastName: string = "";
-  Email:string = "";
-  Curriculum: string ="";
+export class jobForm {
+  JobTitle: string = "";
+  JobDiscription: string = "";
+  Seniority:string = "";
+  Salary: string ="";
 }
