@@ -6,7 +6,7 @@
  ## Executando a API
  1. Instale a versão mais atual do [.NET SDK](https://dotnet.microsoft.com/download)
  2. Instale a versão mais atual do [Docker](https://docs.docker.com/desktop/install/windows-install)
- 3. Após isso, abra o prompt de comando na raiz do projeto da API e execute os seguintes comandos:
+ 3. Após isso, com o docker executando na máquina, abra o prompt de comando na raiz do projeto da API e execute os seguintes comandos:
   *  `docker compose build` *esse comando irá executar o build do projeto;*
   *  `docker compose up` *esse comando irá subir os containers da WebApi e do Banco de dados*
   
