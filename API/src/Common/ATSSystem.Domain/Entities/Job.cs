@@ -16,7 +16,5 @@ namespace ATSSystem.Domain.Entities
 
         public decimal Salary { get; set; }
 
-        public string Curriculum { get; set; }
-
     }
 }

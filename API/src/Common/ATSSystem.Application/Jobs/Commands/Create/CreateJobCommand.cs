@@ -29,8 +29,7 @@ namespace ATSSystem.Application.Jobs.Commands.Create
                 JobDiscription = request.JobDiscription,
                 JobTitle = request.JobTitle,
                 Salary = request.Salary,
-                Seniority = request.Seniority,
-                Curriculum = request.Curriculum
+                Seniority = request.Seniority
             };
 
             await _context.Jobs.AddAsync(entity, cancellationToken);

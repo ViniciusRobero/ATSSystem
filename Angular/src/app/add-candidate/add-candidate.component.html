@@ -1,0 +1,97 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Novo Candidato</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Voltar</a>
+          </div>
+        </div>
+      </div>
+      <form #candidateForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="FirstName" class="p-t-b-10">Nome<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="FirstName" required maxlength="50"
+                [(ngModel)]="addCandidateForm.FirstName" name="FirstName" #FirstName="ngModel">
+              <div *ngIf="FirstName.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!FirstName.errors?.['required']">
+                  Nome é obrigatório
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="LastName" class="p-t-b-10">Sobrenome<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="LastName" required maxlength="50"
+                [(ngModel)]="addCandidateForm.LastName" name="LastName" #LastName="ngModel">
+              <div *ngIf="LastName.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!LastName.errors?.['required']">
+                  Sobrenome é obrigatório
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Celular<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Phone" required maxlength="15"
+                [(ngModel)]="addCandidateForm.Phone" name="Phone" #Phone="ngModel" pattern="^\d{3}\d{3}\d{4}$">
+              <div *ngIf="Phone.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Phone.errors?.['required']">
+                  Celular é obrigatório.
+                </div>
+                <div [hidden]="!Phone.errors?.['touched'] && !Phone.errors?.['pattern']">
+                  Celular informado inválido.
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="form-group p-10 row">
+          <div class="form-group p-10 row">
+          <div class="col-sm-3">
+            <label class="p-t-b-10">Data de Nascimento<span class="requiredStar">*</span></label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="Birthdate" required maxlength="10"
+              [(ngModel)]="addCandidateForm.Birthdate" name="Birthdate" #Birthdate="ngModel" pattern="'^(0?[1-9]|[12][0-9]|3[01])[/-](0?[1-9]|1[012])[/-]\\d{4}$' or /^(0?[1-9]|[12][0-9]|3[01])[\/-](0?[1-9]|1[012])[\/-]\d{4}$/">
+            <div *ngIf="Birthdate.errors && isSubmitted" class="alert alert-danger validationError">
+              <div [hidden]="!Birthdate.errors?.['required']">
+                Data de nascimento é obrigatório.
+              </div>
+              <div [hidden]="!Phone.errors?.['touched'] && !Phone.errors?.['pattern']">
+                Data de Nascimento informada é inválida.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="form-group p-10 row">
+          <div class="col-sm-3">
+            <label class="p-t-b-10">Curiculum</label>
+          </div>
+          <div class="col-sm-9">
+            <textarea class="form-control" id="Curriculum" [(ngModel)]="addCandidateForm.Curriculum" name="Curriculum"
+              #Curriculum="ngModel">></textarea>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="AddCandidate(candidateForm.form.valid)">Salvar</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

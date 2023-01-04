@@ -8,25 +8,28 @@ namespace ATSSystem.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Candidate> builder)
         {
+            builder.HasKey(x => x.Id);
 
-            builder.Property(t => t.Name)
-                .HasMaxLength(200)
+            builder.Property(t => t.FirstName)
+                        .HasMaxLength(50)
+                        .IsRequired();
+
+            builder.Property(t => t.FirstName)
+                .HasMaxLength(50)
                 .IsRequired();
 
-            builder.Property(t => t.Document)
-                .HasMaxLength(15)
+            builder.Property(t => t.LastName)
+                .HasMaxLength(50)
                 .IsRequired();
 
             builder.Property(t => t.BirthDate)
                 .IsRequired();
 
-            builder.Property(t => t.Seniority)
+            builder.Property(t => t.Phone)
                 .HasMaxLength(10)
                 .IsRequired();
 
-            builder.Property(t => t.Occupation)
-                .HasMaxLength(30)
-                .IsRequired();
+            builder.Property(t => t.Curriculum);
         }
     }
 }

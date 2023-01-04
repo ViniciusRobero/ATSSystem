@@ -9,4 +9,8 @@
       <ProjectReference Include="..\ATSSystem.Infrastructure\ATSSystem.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
 </Project>

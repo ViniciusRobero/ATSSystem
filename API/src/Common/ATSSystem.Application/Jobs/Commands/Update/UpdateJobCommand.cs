@@ -56,9 +56,6 @@ namespace ATSSystem.Application.Jobs.Commands.Update
             if (!string.IsNullOrEmpty(request.Seniority))
                 entity.Seniority = request.Seniority;
 
-            if (!string.IsNullOrEmpty(request.Curriculum))
-                entity.Curriculum = request.Curriculum;
-
             await _context.SaveChangesAsync(cancellationToken);
 
             return ServiceResult.Success(_mapper.Map<JobsDto>(entity));

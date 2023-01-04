@@ -8,6 +8,7 @@ namespace ATSSystem.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<JobApplication> builder)
         {
+            builder.HasKey(x => x.Id);
 
             builder.Property(t => t.CandidateId)
                 .IsRequired();

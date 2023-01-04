@@ -9,7 +9,7 @@ using MapsterMapper;
 
 namespace ATSSystem.Application.Candidates.Commands.Create
 {
-    public record CreateCandidateCommand(string Name, string Document, DateTime BirthDate, string Ocupation, string Seniority, string Occupation) : IRequestWrapper<CandidatesDto>;
+    public record CreateCandidateCommand(string FirstName, string LastName, string Phone, DateTime BirthDate, string Curriculum) : IRequestWrapper<CandidatesDto>;
 
     public class CreateCandidateCommandHandler : IRequestHandlerWrapper<CreateCandidateCommand, CandidatesDto>
     {
@@ -26,11 +26,11 @@ namespace ATSSystem.Application.Candidates.Commands.Create
         {
             var entity = new Candidate
             {
-                Name = request.Name,
-                Document = request.Document,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
                 BirthDate = request.BirthDate,
-                Occupation = request.Ocupation,
-                Seniority = request.Seniority
+                Curriculum = request.Curriculum,
+                Phone = request.Phone
             };
 
             await _context.Candidates.AddAsync(entity, cancellationToken);

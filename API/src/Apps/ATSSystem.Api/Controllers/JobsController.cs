@@ -83,7 +83,7 @@ namespace ATSSystem.Api.Controllers
         /// <param name="command"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("apply")]
         public async Task<ActionResult<ServiceResult<JobApplicationDto>>> Create(CreateJobApplicationCommand command, CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(command, cancellationToken));

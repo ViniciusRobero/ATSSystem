@@ -2,7 +2,8 @@ version: '3.4'
 
 services:
 
-  sqlserver:
+  sqlserverlocal:
+    container_name: "sqlserverlocal"
     image: "mcr.microsoft.com/mssql/server:2019-latest"
     ports:
       - "1433:1433"
