@@ -8,13 +8,13 @@ import { HttpProviderService } from '../service/http-provider.service';
   selector: 'ng-modal-confirm',
   template: `
   <div class="modal-header">
-    <h5 class="modal-title" id="modal-title">Delete Confirmation</h5>
+    <h5 class="modal-title" id="modal-title">Confirmação de exclusão</h5>
     <button type="button" class="btn close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>Are you sure you want to delete?</p>
+    <p>Tem certeza que deseja deletar??</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">CANCEL</button>

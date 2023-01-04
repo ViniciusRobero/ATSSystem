@@ -18,9 +18,7 @@ namespace ATSSystem.Application.Candidates.Commands.Update
 
         public string LastName { get; set; }
 
-        public string Phone { get; set; }
-
-        public DateTime BirthDate { get; set; }
+        public string Email { get; set; }
 
         public string Curriculum { get; set; }
 
@@ -54,11 +52,8 @@ namespace ATSSystem.Application.Candidates.Commands.Update
             if (!string.IsNullOrEmpty(request.Curriculum))
                 entity.Curriculum = request.Curriculum;
 
-            if (!string.IsNullOrEmpty(request.Phone))
-                entity.Phone = request.Phone;
-
-            if (request.BirthDate != DateTime.MinValue)
-                entity.BirthDate = request.BirthDate;
+            if (!string.IsNullOrEmpty(request.Email))
+                entity.Email = request.Email;
 
             if (!string.IsNullOrEmpty(request.Curriculum))
                 entity.Curriculum = request.Curriculum;

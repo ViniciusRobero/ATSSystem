@@ -2,19 +2,19 @@ import { Component, OnInit, Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../service/http-provider.service';
+import { HttpProviderService } from 'src/app/service/http-provider.service';
 
 @Component({
   selector: 'ng-modal-confirm',
   template: `
   <div class="modal-header">
-    <h5 class="modal-title" id="modal-title">Delete Confirmation</h5>
+    <h5 class="modal-title" id="modal-title">Confirmação de Exclusão</h5>
     <button type="button" class="btn close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>Are you sure you want to delete?</p>
+    <p>Tem certeza que deseja excluir?</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">CANCEL</button>
@@ -45,9 +45,9 @@ export class ListCandidateComponent implements OnInit {
   }
 
   async getAllCandidate() {
-    this.httpProvider.getAllCandidate().subscribe((data : any) => {
-      if (data != null && data.body != null) {
-        var resultData = data.body;
+    this.httpProvider.getAllCandidate().subscribe((result : any) => {
+      if (result != null && result.body != null) {
+        var resultData = result.body.data;
         if (resultData) {
           this.candidateList = resultData;
         }

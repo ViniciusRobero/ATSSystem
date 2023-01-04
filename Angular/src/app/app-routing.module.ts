@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddCandidateComponent } from './add-candidate/add-candidate.component';
-import { EditCandidateComponent } from './edit-candidate/edit-candidate.component';
+import { AddCandidateComponent } from './components/candidates/add-candidate/add-candidate.component';
+import { EditCandidateComponent } from './components/candidates/edit-candidate/edit-candidate.component';
 import { HomeComponent } from './home/home.component';
 import { ViewCandidateComponent } from './view-candidate/view-candidate.component';
 

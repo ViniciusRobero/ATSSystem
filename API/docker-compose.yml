@@ -11,14 +11,14 @@ services:
       - "SA_PASSWORD=S3cur3P@ssW0rd!"
       - "ACCEPT_EULA=Y"
 
-  webapi:
-    image: ${DOCKER_REGISTRY-}webapi
-    build:
-      context: .
-      dockerfile: src/Apps/ATSSystem.Api/Dockerfile
-    ports:
-      - "5005:80"
+  #webapi:
+  #  image: ${DOCKER_REGISTRY-}webapi
+  #  build:
+  #    context: .
+  #    dockerfile: src/Apps/ATSSystem.Api/Dockerfile
+  #  ports:
+  #    - "5005:80"
 
-    restart: on-failure
-    depends_on:
-      - sqlserver
+  #  restart: on-failure
+  #  depends_on:
+  #    - sqlserver

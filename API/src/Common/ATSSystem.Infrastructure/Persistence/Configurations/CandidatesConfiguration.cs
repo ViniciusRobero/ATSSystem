@@ -21,12 +21,8 @@ namespace ATSSystem.Infrastructure.Persistence.Configurations
             builder.Property(t => t.LastName)
                 .HasMaxLength(50)
                 .IsRequired();
-
-            builder.Property(t => t.BirthDate)
-                .IsRequired();
-
-            builder.Property(t => t.Phone)
-                .HasMaxLength(10)
+            builder.Property(t => t.Email)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(t => t.Curriculum);

@@ -49,6 +49,8 @@ namespace ATSSystem.Api
             
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddCors();
+
             services.AddControllers(options =>
                     options.Filters.Add<ApiExceptionFilterAttribute>());
 
@@ -88,11 +90,18 @@ namespace ATSSystem.Api
             }
 
             app.UseHttpsRedirection();
+  
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ATSSystem API"));
 
             app.UseRouting();
+
+            app.UseCors(x => x
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .SetIsOriginAllowed(origin => true)
+              .AllowCredentials());
 
             app.UseEndpoints(endpoints =>
             {

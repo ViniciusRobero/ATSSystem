@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../service/http-provider.service';
+import { HttpProviderService } from '../../../service/http-provider.service';
 
 @Component({
   selector: 'app-add-candidate',
@@ -25,11 +25,12 @@ export class AddCandidateComponent implements OnInit {
   AddCandidate(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
+      console.log(this.addCandidateForm);
       this.httpProvider.saveCandidate(this.addCandidateForm).subscribe(async data => {
         if (data != null && data.body != null) {
           if (data != null && data.body != null) {
             var resultData = data.body;
-            if (resultData != null && resultData.isSuccess) {
+            if (resultData != null && resultData.succeeded) {
               this.toastr.success(resultData.message);
               setTimeout(() => {
                 this.router.navigate(['/Home']);
@@ -52,7 +53,6 @@ export class AddCandidateComponent implements OnInit {
 export class candidateForm {
   FirstName: string = "";
   LastName: string = "";
-  Phone: string = "";
-  Birthdate: Date;
+  Email:string = "";
   Curriculum: string ="";
 }

@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpProviderService } from '../service/http-provider.service';
+import { HttpProviderService } from 'src/app/service/http-provider.service';
+
 
 @Component({
   selector: 'app-edit-candidate',
@@ -29,14 +30,13 @@ export class EditCandidateComponent implements OnInit {
   getCandidateDetailById() {
     this.httpProvider.getCandidateDetailById(this.candidateId).subscribe((data: any) => {
       if (data != null && data.body != null) {
-        var resultData = data.body;
+        var resultData = data.body.data;
         if (resultData) {
           this.editCandidateForm.Id = resultData.id;
           this.editCandidateForm.FirstName = resultData.firstName;
           this.editCandidateForm.LastName = resultData.lastName;
           this.editCandidateForm.Email = resultData.email;
-          this.editCandidateForm.Address = resultData.address;
-          this.editCandidateForm.Phone = resultData.phone;
+          this.editCandidateForm.Curriculum = resultData.curriculum;
         }
       }
     },
@@ -49,14 +49,12 @@ export class EditCandidateComponent implements OnInit {
       this.httpProvider.saveCandidate(this.editCandidateForm).subscribe(async data => {
         if (data != null && data.body != null) {
           var resultData = data.body;
-          if (resultData != null && resultData.isSuccess) {
-            if (resultData != null && resultData.isSuccess) {
+            if (resultData != null && resultData.succeeded) {
               this.toastr.success(resultData.message);
               setTimeout(() => {
                 this.router.navigate(['/Home']);
               }, 500);
             }
-          }
         }
       },
         async error => {
@@ -74,6 +72,5 @@ export class candidateForm {
   FirstName: string = "";
   LastName: string = "";
   Email: string = "";
-  Address: string = "";
-  Phone: string = "";
+  Curriculum: string = "";
 }

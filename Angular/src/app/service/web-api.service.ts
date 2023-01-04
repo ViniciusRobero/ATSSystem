@@ -58,6 +58,25 @@ export class WebApiService {
       );
   }
 
+  delete(url: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Cache-Control' : 'no-cache',
+        'Pragma' : 'no-cache'
+      }),
+      observe: "response" as 'body'
+    };
+
+    return this.httpClient.delete(
+      url,
+      httpOptions
+    )
+      .pipe(
+        map((response: any) => this.ReturnResponseData(response)),
+        catchError(this.handleError)
+      );
+  }
 
   private ReturnResponseData(response: any) {
     return response;

@@ -22,11 +22,8 @@ namespace ATSSystem.Application.Candidates.Commands.Create
                 .MaximumLength(15).WithMessage("LastName must not exceed 15 characters.")
                 .NotEmpty().WithMessage("LastName is required.");
 
-            RuleFor(v => v.BirthDate)
-                .NotEmpty().WithMessage("BirthDate is required.");
-
-            RuleFor(v => v.Phone)
-                .MaximumLength(15).WithMessage("Phone must not exceed 10 characters.")
+            RuleFor(v => v.Email)
+                .MaximumLength(15).WithMessage("Email must not exceed 10 characters.")
                 .NotEmpty().WithMessage("Phone is required.");
 
         }
